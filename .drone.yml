@@ -1,0 +1,16 @@
+workspace:
+  base: /go
+  path: src/github.com/metalmatze/time.kitchen
+
+pipeline:
+  build:
+    image: golang:alpine
+    commands:
+    - CGO_ENABLED=0 go build -v -ldflags '-w -extldflags "-static"'
+    when:
+      event: [ push, tag, pull_request ]
+
+  docker-tag:
+    image: plugins/docker
+    repo: metalmatze/time.kitchen
+    tags: [ 'latest' ]
