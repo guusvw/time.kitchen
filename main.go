@@ -8,11 +8,11 @@ import (
 )
 
 func main() {
-	kitchen := time.Now().Format(time.Kitchen)
-
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "%s", kitchen)
-	})
-
+	http.HandleFunc("/", kitchen)
 	log.Fatal(http.ListenAndServe(":8080", nil))
+}
+
+func kitchen(w http.ResponseWriter, r *http.Request) {
+	kitchen := time.Now().Format(time.Kitchen)
+	fmt.Fprint(w, kitchen)
 }
