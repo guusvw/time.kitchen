@@ -13,6 +13,9 @@ func main() {
 }
 
 func kitchen(w http.ResponseWriter, r *http.Request) {
+	ip := r.Header.Get("x-forwarded-for")
+	fmt.Println(ip)
+
 	kitchen := time.Now().Format(time.Kitchen)
 	fmt.Fprint(w, kitchen)
 }
