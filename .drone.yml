@@ -4,7 +4,7 @@ workspace:
 
 pipeline:
   build:
-    image: golang:alpine
+    image: golang
     commands:
     - go get -v -u ./...
     - CGO_ENABLED=0 go build -v -ldflags '-w -extldflags "-static"'
