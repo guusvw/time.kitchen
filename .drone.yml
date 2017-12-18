@@ -6,7 +6,7 @@ pipeline:
   build:
     image: golang
     commands:
-    - go get -v -u ./...
+    - go get -v ./...
     - CGO_ENABLED=0 go build -v -ldflags '-w -extldflags "-static"'
     when:
       event: [ push, tag, pull_request ]
@@ -16,3 +16,5 @@ pipeline:
     repo: metalmatze/time.kitchen
     secret: [ docker_username, docker_password ]
     tags: [ 'latest' ]
+    when:
+      branch: [ master ]
