@@ -4,17 +4,20 @@ workspace:
 
 pipeline:
   build:
-    image: golang
+    group: go
+    image: golang:1.9
+    pull: true
     commands:
     - go get -v ./...
     - CGO_ENABLED=0 go build -v -ldflags '-w -extldflags "-static"'
     when:
       event: [ push, tag, pull_request ]
 
-  docker-tag:
+  docker:
     image: plugins/docker
     repo: metalmatze/time.kitchen
-    secret: [ docker_username, docker_password ]
-    tags: [ 'latest' ]
+    secrets: [ docker_username, docker_password ]
+    tags:
+      - 'latest'
     when:
-      branch: [ master ]
+      branch: master
