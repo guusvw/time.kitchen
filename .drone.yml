@@ -13,4 +13,5 @@ pipeline:
   docker-tag:
     image: plugins/docker
     repo: metalmatze/time.kitchen
+    secrets: [ docker_username, docker_password ]
     tags: [ 'latest' ]
