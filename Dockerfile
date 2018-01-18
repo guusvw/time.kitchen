@@ -1,6 +1,6 @@
 FROM alpine
 
-apk add -U tzdata
+RUN apk add -U tzdata
 
 EXPOSE 8080
 ADD ./time.kitchen /usr/bin/time.machine
