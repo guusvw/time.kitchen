@@ -22,7 +22,9 @@ func kitchen(ipd ipdata.Client) http.HandlerFunc {
 		loc := time.UTC
 
 		ip, err := ipd.Lookup(f)
-		if err == nil {
+		if err != nil {
+			log.Printf("lookup failed: %v\n", err)
+		} else {
 			loc = ip.TimeZone
 		}
 
