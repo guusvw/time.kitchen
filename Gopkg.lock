@@ -2,6 +2,12 @@
 
 
 [[projects]]
+  branch = "master"
+  name = "github.com/golang/glog"
+  packages = ["."]
+  revision = "23def4e6c14b4da8ac2ed8007337bc5eb5007998"
+
+[[projects]]
   name = "github.com/pkg/errors"
   packages = ["."]
   revision = "645ef00459ed84a119197bfb8d8205042c6df63d"
@@ -16,6 +22,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "46ec73d146f0f0263e1394890ac906213119c1655b740d448ca4bdea2b5b13f0"
+  inputs-digest = "c161ff01580704ab0765fea06d054b05ee3dc7db91bb423f5a4120a3b6055640"
   solver-name = "gps-cdcl"
   solver-version = 1
